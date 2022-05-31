@@ -1,0 +1,1781 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{\textbf{ÁLGEBRA LINEAL}}
+
+\date{Marzo 2022}
+\begin{document}
+\maketitle
+
+
+
+\section{Vectores}
+Formula
+\[
+    \displaystyle\sum\limits_{i=1}^n a_{i}b_{i}
+\]
+supongamos que tenemos dos vectores
+tanto la suma como la resta de vectores esta definida por: \\
+
+
+\subsection{Suma de Vectores}
+la suma del primer índice de cada vector mas el primer índice del segundo vector,
+lo mismo con el segundo índice de ambos vectores
+lo mismo aplica para la resta el mismo orden en las operaciones
+\[
+    \vec{u} = ( -2,5) \: y \:
+    \vec{v} =  (3,1)
+\]
+la suma esta dada por
+la suma del primer índice de cada vector mas el primer índice del segundo vector,
+lo mismo con el segundo índice de ambos vectores
+\[
+\vec{u} +\vec{v} = (-2 + 3, 5 - 1) = (1,4)
+\]
+\subsubsection{Un ejemplo mas de suma}
+\[
+\vec{A} = \begin{bmatrix}0 & 1 \\2 & 3 \end{bmatrix} \vec{B} = \begin{bmatrix}4 & 5 \\6 & -7 \end{bmatrix}
+\]
+\[
+\vec{A} +\vec{B} =\begin{bmatrix}0 & 1 \\2 & 3 \end{bmatrix} + \begin{bmatrix}4 & 5 \\6 & -7 \end{bmatrix}
+\]
+\[
+    =\begin{bmatrix}0+4 \\2+6 \end{bmatrix} + \begin{bmatrix}1+5 \\3+(-7) \end{bmatrix} = \begin{bmatrix}4 &  6 \\8 & -4 \end{bmatrix}
+\]
+
+\subsection{Resta de Vectores}
+la resta esta dada por
+
+\[
+\vec{u} - \vec{v} = (-2 - 3, 5 - (-1)) = (-5,6)
+\]
+
+\subsection{Multiplicación por un escalar}
+Multiplicación por un escalar
+Supongamos que tenemos el escalar 5
+con un vector (-2,3,4), la operación quedaría de la siguiente manera
+
+\[
+    5 (-2, 3, 4) = 5 (-10, 15, 20)
+    -50,
+\]
+
+Donde multiplica el escalar por cada individuo del vector
+
+\subsection{Producto Punto}
+El producto punto o producto escalar de dos vectores es una operación que da como resultado un número real.
+una de ellas es por medio de multiplicar el producto de los módulos de los vectores por el coseno del ángulo que forman, esto es
+\[
+    \vec{u} \cdot \vec{v} = | \vec{u}| | \vec{v}| cos \alpha
+\]
+Sin embargo, la forma más común de definir el producto punto no es esa,
+ sino por medio de la suma de los productos de sus respectivas coordenadas,
+  es decir,
+  \[
+  \vec{u} = (u_1, u_2, \dots, u_n) \: y \: \vec{v} = (v_1, v_2, \dots, v_n),
+  \]
+  entonces podemos definir el producto punto como
+  \[
+  \displaystyle \vec{u} \cdot \vec{v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \sum_{i=1}^{n}{u_iv_i}
+  \]
+
+  Encuentra el producto punto de dos vectores, que tienen las coordenadas
+
+  \[
+    \displaystyle \vec{v} = \left( 1, \frac{1}{2}, 3\right), \qquad \vec{u} = \left(4, -4, 1\right).
+    \]
+
+    \[
+         \vec{v} \cdot \vec{u} = \left( 1, \frac{1}{2}, 3\right) \cdot \left(4, -4, 1\right)\\ = (1)(4) + \left( \frac{1}{2}\right) (-4) + (3)(1)\\ = 4 - 2 + 3\\ = 5
+    \]
+
+\section{Sistema de ecuaciones lineales}
+
+
+\subsection{Solución Única}
+
+\subsubsection{1er Ejemplo}
+Resolver el siguiente Sistema de ecuaciones lineales mediante
+el método de Gauss-Jordán
+\[
+  2x + 3y + z = 1
+  3x-2y-4z= -3
+  5x-y-z = 4
+\]
+
+para solucionarla primero escribimos la matriz aumentada del Sistema
+
+\[
+    \begin{bmatrix}2 & 3 & 1 & 1 \\ 3  & -2 & -4 & -3 \\ 5  & -1 & -1  & 4 \end{bmatrix}
+\]
+
+
+
+Debemos llevar dicha matriz a su forma escalonada reducida mediante operaciones elementales.
+para esto, escribiremos la matriz y a continuación una flecha. encima de esta flecha indicaremos las operaciones
+que estamos efectuando
+Notación:
+
+\[
+    cR_i \space nuevo renglo|n i de la matriz aumentada \space
+    R_i <-> R_j intercambio del renglo|n i  con el renglo|n j
+    aR_1 + R_j nuevo renglo|n j de la matriz aumentada
+\]
+
+desarrollo para obtener la forma escalonada reducida
+
+
+\[
+    \begin{bmatrix}2 & 3 & 1 & 1 \\ 3  & -2 & -4 & -3 \\ 5  & -1 & -1  & 4 \end{bmatrix}
+    ->
+    \begin{bmatrix}1 & \frac{3}{2} & \frac{1}{2} & \frac{1}{2} \\ 3  & -2 & -4 & -3 \\ 5  & -1 & -1  & 4 \end{bmatrix}
+    -> -3R_1 + R_1
+    -5R_1+R_3
+    \begin{bmatrix} 1 & \frac{3}{2} & \frac{1}{2} & \frac{1}{2} \\ 0  &  - \frac{13}{2} & - \frac{11}{2} & -\frac{9}{2} \\ 0  & -\frac{17}{2} & -\frac{7}{2}  & \frac{3}{2} \end{bmatrix}
+\]
+
+
+\[
+    -> -\frac{2}{13} \ space 2R_3
+    \begin{bmatrix}1 & \frac{3}{2} & \frac{1}{2} & \frac{1}{2} \\ 0  & 1 & \frac{11}{13} & \frac{9}{13} \\ 0  & -17 & -7  & 3 \end{bmatrix}
+\]
+
+\[
+    -> -17R_2 + R_3 \ space 2R_3
+    \begin{bmatrix}1 & \frac{3}{2} & \frac{1}{2} & \frac{1}{2} \\ 0  & 1 & \frac{11}{13} & \frac{9}{13} \\ 0  & 0 & \frac{96}{13}  & \frac{192}{13} \end{bmatrix}
+    -> \frac{13}{96}R_3
+    \begin{bmatrix}1 & \frac{3}{2} & \frac{1}{2} & \frac{1}{2} \\ 0  & 1 & \frac{11}{13} & \frac{9}{13} \\ 0  & 0 & 1  & 2 \end{bmatrix}
+\]
+
+\[
+    -> -\frac{11}{13} R_3 + R_2 \ space -\frac{1}{2}R_3+R1
+    \begin{bmatrix}1 & \frac{3}{2} & \frac{1}{2} & -\frac{1}{2} \\ 0  & 1 & 0 & -1 \\ 0  & 0 & \frac{96}{13}  & \frac{192}{13} \end{bmatrix}
+    -> -\frac{3}{1}R_2 +R_1
+    \begin{bmatrix}1 & 0 & 0 & 1 \\ 0  & 1 & 0 & -1 \\ 0  & 0 & 1  & 2 \end{bmatrix}
+    \]
+
+\[
+    x = 1, y = 1 z = 2
+\]
+
+Interpretación del resultado
+la ultima matriz escalonada reducida indica que la solución del sistema es
+x = 1, y = 1 z = 2
+
+
+\subsubsection{2do Ejemplo}
+
+\[
+    3x +2y +4z = 1
+    5x-y-3z = -7
+    4x +3y + z = 2
+\]
+
+\[
+    \begin{bmatrix}3 & 2 & 4 & 1 \\ 5  & -1 & -3 & -7 \\ 4  & 3 & 1  & 2 \end{bmatrix}
+\]
+
+
+El primer elemento del primer renglo|n que queremos que sea uno, una manera de obtenerlo es dividiendo entre 3,
+sin embargo, no es el único camino ni el mejor para obtenerlo, en este caso obtendremos -1, primero y después haremos cero los demás elementos
+de la primera columna posteriormente obtendremos 1
+
+
+\[
+    \begin{bmatrix}3 & 2 & 4 & 1 \\ 5  & -1 & -3 & -7 \\ 4  & 3 & 1  & 2 \end{bmatrix}
+    -> -R_3+R_1
+    \begin{bmatrix}-1 & -1  & 3 & -1 \\ 5  & -1 & -3 & -7 \\ 4  & 3 & 1  & 2 \end{bmatrix}
+\]
+
+\[
+    -> 5R_1 + R_2 SPACE 4R_1 + R_3
+    \begin{bmatrix} -1 & -1  & 3 & -1 \\ 0  & -6 & 12 & -12 \\ 0  & -1 & 13  & -2 \end{bmatrix}
+    -> -R_1 space - \frac{1}{6} R_2
+    \begin{bmatrix} 1 & 1  & -3 & 1 \\ 0  & 1 & -2 & 2 \\ 0  & -1 & 13  & -2 \end{bmatrix}
+\]
+
+
+
+\[
+        -> R_2 + R_3
+        \begin{bmatrix} 1 & 1  & -3 & 1 \\ 0  & 1 & -2 & 2 \\ 0  & 0 & 11  & 0 \end{bmatrix}
+\]
+\[
+        -> \frac{1}{11} R_3
+        \begin{bmatrix} 1 & 1  & -3 & 1 \\ 0  & 1 & -2 & 2 \\ 0  & 0 & 1  & 0 \end{bmatrix}
+\]
+
+\[
+        -> 2R_3 + R_1 SPACE 3R_3 +R_1
+        \begin{bmatrix} 1 & 1  & 0 & 1 \\ 0  & 1 & 0 & 2 \\ 0  & 0 & 1  & 0 \end{bmatrix}
+\]
+
+\[
+        -> -R_1 + R_1
+        \begin{bmatrix} 1 & 0  & 0 & -1 \\ 0  & 1 & 0 & 2 \\ 0  & 0 & 1  & 0 \end{bmatrix}
+\]
+
+La solución al sistema es 
+x = 2, y = 2 z = 0
+
+\subsubsection{3er Ejemplo}
+
+Resuelva el siguiente sistema de ecuaciones lineales
+\[
+    a - b = 6
+    b + c = 3
+    c + 2d = 4
+    2a - 3d = 5
+\]
+
+Escribiendo la matriz aumentada del sistema y reduciendo de acuerdo a la operación indicada tenemos
+
+\[
+    \begin{bmatrix}1 & -1 & 0 & 0 & -6  \\ 0 & 1 & 1 & 0 & 3 \\ 0 & 0 & 1 & 2 & 4  \\ 2 & 0 & 0 & -3 & -5 \end{bmatrix}
+    -> -2R_1 + R_4
+    \begin{bmatrix}1 & -1 & 0 & 0 & -6  \\ 0 & 1 & 1 & 0 & 3 \\ 0 & 0 & 1 & 2 & 4  \\ 0 & 2 & 0 & -3 & 17 \end{bmatrix}
+    -> -2R_2 + R_4
+\]
+
+\[
+    \begin{bmatrix} 1 & -1 & 0 & 0 & -6  \\ 0 & 1 & 1 & 0 & 3 \\ 0 & 0 & 1 & 2 & 4  \\ 0 & 0 & -2 & -3 & 11 \end{bmatrix}
+    -> 2R_3 + R_4
+    \begin{bmatrix}1 & -1 & 0 & 0 & -6  \\ 0 & 1 & 1 & 0 & 3 \\ 0 & 0 & 1 & 2 & 4  \\ 0 & 0 & 0 & 1 & 19 \end{bmatrix}
+    -> -2R_4 + R_3
+\]
+
+\[
+    \begin{bmatrix} 1 & -1 & 0 & 0 & -6  \\ 0 & 1 & 1 & 0 & 3 \\ 0 & 0 & 1 & 0 & -34  \\ 0 & 0 & 0 & 1 & 19 \end{bmatrix}
+    -> -R_3 + R_1
+    \begin{bmatrix} 1 & -1 & 0 & 0 & -6  \\ 0 & 1 & 0 & 0 & 37 \\ 0 & 0 & 1 & 0 & -34  \\ 0 & 0 & 0 & 1 & 19 \end{bmatrix}
+    -> R_1 + R_1
+\]
+\[
+    \begin{bmatrix} 1 & 0 & 0 & 0 & 31  \\ 0 & 1 & 0 & 0 & 37 \\ 0 & 0 & 1 & 0 & -34  \\ 0 & 0 & 0 & 1 & 19 \end{bmatrix}
+\]
+
+a = 31, b = 37, c = -34, d = 19
+
+\subsection{Sin Solución}
+
+
+\subsubsection{1er Ejemplo}
+
+Resolver el siguiente sistema de ecuaciones
+
+\[
+    x+8y -5z = 3
+    3x-2y+3z = 1
+    2x +3y -z = 4
+\]
+
+Solución
+
+\[
+    \begin{bmatrix} 1 & 8 & -5 & 3   \\ 3 & -2 & 3 & 1  \\ 2 & 3 & -1 & 4  \end{bmatrix}
+    -3R_1 + R_2 SPACXIOP -2R_1 + R_3
+    \begin{bmatrix} 1 & 8 & -5 & 3   \\ 0 & -26 & 18 & -8  \\ 0 & -13 & 9 & -2  \end{bmatrix}
+\]
+
+\[
+    -2R_3 + R_2
+    \begin{bmatrix} 1 & 8 & -5 & 3   \\ 0 & 0 & 0 & -4  \\ 0 & -13 & 9 & -2  \end{bmatrix}
+\]
+
+No hay necesidad de seguir reduciendo, del segundo renglo|n se tiene 0x + 0y + 0z = -4
+que da la igualdad 0 = -4 CONTRADICCION, por lo tanto, el sistema no tiene Solución
+
+\subsubsection{2do Ejemplo}
+
+Resolver el siguiente sistema de ecuaciones
+
+\[
+    \begin{bmatrix}
+
+         a & b & -3c & -4d = -1  \\
+         2a & 2b & -c & -2d = 1  \\
+         a & b & 2c &   2d  =5 \\
+
+    \end{bmatrix}
+\]
+
+solución
+
+\[
+    \begin{bmatrix}
+
+         1 & 1 & -3 & -4 = -1  \\
+         2& 2 & -1 & -2 = 1  \\
+         1 & 1 & 2 &   2  =5 \\
+
+    \end{bmatrix}
+    -> -2R_1 +R_2 spacio -R_1+R_3
+    \]
+    \[
+        \begin{bmatrix}
+            1 & 1 & -3 & -4 = -1  \\
+            0& 0 & 5 & 6 = 3  \\
+            0 & 0 & 5 &  6  =6 \\
+        \end{bmatrix}
+        \]
+
+        \[
+    -> -R_2 +R_3
+    \begin{bmatrix}
+         1 & 1 & -3 & -4 = -1  \\
+         0& 0 & 5 & 6 = 3  \\
+         0 & 0 & 0 &  0  =3 \\
+    \end{bmatrix}
+\]
+
+Del tercer renglo|n se tiene 0a + 0b + 0c + 0d = 3
+el  sistema no tiene solución
+
+
+\subsection{3er Ejemplo}
+\[
+\begin{bmatrix}
+ x & +y & +z & -w = 2  \\
+ 2x& -y &  & +w = 5 \\
+ 3x &  & +z &+ w    =1 \\
+ 2x & +2y & +2z &  -w  =3 \\
+\end{bmatrix}
+\]
+
+\[
+\begin{bmatrix}
+ 1 & 1 & 1 & -1 &  2 \\
+ 2& -1 & 0 & 1  & 5 \\
+ 3 & 0 & 1 & 1  &   1 \\
+ 2 & 2 & 2 &  -1&   3 \\
+\end{bmatrix}
+ -> -2R_1 + R_2 SPACE -3R_1 + R_3 SPACE -2R_1 + R_4
+\]
+
+
+\[
+\begin{bmatrix}
+ 1 & 1 & 1 & -1  & 2  \\
+ 0& -3 & -2 & 3  & 1 \\
+ 0 & -3 & -2 & 4   &  -5 \\
+ 0 & 0 & 0 &  1 &  -1 \\
+\end{bmatrix}
+-> -R_2+R_3
+\]
+
+
+\[
+\begin{bmatrix}
+ 1 & 1 & 1 & -1  & 2  \\
+ 0& -3 & -2 & 3  & 1 \\
+ 0 & 0 & 0 & 1   &  -6 \\
+ 0 & 0 & 0 &  1 &  -1 \\
+\end{bmatrix}
+-> -R_3+R_4
+\]
+\[
+\begin{bmatrix}
+ 1 & 1 & 1 & -1  & 2  \\
+ 0& -3 & -2 & 3  & 1 \\
+ 0 & 0 & 0 & 1   &  -6 \\
+ 0 & 0 & 0 &  0 &  5 \\
+\end{bmatrix}
+\]
+
+del cuarto renglo|n se tiene 0x + 0y + 0z + 0w = 5
+que da la igualdad 0 = 5
+por lo tanto, el sistema no tiene solución
+
+
+
+\subsection{Infinititas Soluciones}
+
+\subsubsection{1er Ejemplo}
+
+obtener la solución del siguiente Sistema de ecuaciones lineales
+
+\[
+\begin{bmatrix}
+ 3x & -2y & + 3z = 5  \\
+ 2x & 4y & -z = 2  \\
+\end{bmatrix}
+\]
+
+Solución
+
+\[
+\begin{bmatrix}
+ 3 & -2 & + 3 & 5  \\
+ 2 & 4 & -1 & 2  \\
+\end{bmatrix}
+-> -R_2+ R_1
+\]
+\[
+\begin{bmatrix}
+ 1 & -6 & + 4 & 3  \\
+ 2 & 4 & -1 & 2  \\
+\end{bmatrix}
+-> -R_1+ R_2
+\]
+\[
+\begin{bmatrix}
+ 1 & -6 & + 4 & 3  \\
+ 0 & 16 & -9 & -4  \\
+\end{bmatrix}
+-> \frac{1}{16}R_2
+\]
+
+\[
+\begin{bmatrix}
+ 1 & -6 & + 4 & 3  \\
+ 0 & 1 & \frac{9}{16} & -\frac{1}{4}  \\
+\end{bmatrix}
+-> 6R_2+R_1
+\]
+\[
+\begin{bmatrix}
+ 1 & 0 & + \frac{5}{8} & \frac{3}{2}  \\
+ 0 & 1 & \frac{9}{16} & -\frac{1}{4}  \\
+\end{bmatrix}
+\]
+La última matriz está en su forma escalonada reducida, ya no se puede reducir más,
+de donde obtendremos
+
+\[
+    x + \frac{5}{8}z = \frac{3}{2}
+    y - \frac{9}{16}z = -\frac{1}{4}
+\]
+Despejando x,y
+\[
+    x  =  \frac{3}{2} -\frac{5}{8}z
+    y = -\frac{1}{4} + \frac{9}{16}z
+\]
+luego x,y dependen de z, si z = t, tenemos Que t pertenece a los numero reales R
+
+\[
+    x  =  \frac{3}{2} -\frac{5}{8}t
+    y = -\frac{1}{4} + \frac{9}{16}t
+    z = t
+\]
+es decir, el sistema de ecuaciones tiene una infinidad de soluciones ya que para cada valor
+de t habrá un valor para x,y,z
+
+
+por ejemplo, si t = 0 entonces:
+\[
+X = \frac{3}{2}
+y = -\frac{1}{4}
+z = 0
+\]
+es una solución para el sistema de ecuaciones
+sí t = 1 entonces
+\[
+X = \frac{7}{8}
+y = \frac{5}{16}
+z = 1
+\]
+
+\subsubsection{3er Ejemplo}
+
+
+\[
+\begin{bmatrix}
+ 2x & -y & + 3z = 4  \\
+ 3x & +2y & -z = 3  \\
+ X & +3y & -4z = -1  \\
+\end{bmatrix}
+\]
+
+solución
+Desde un principio podemos escribir la matriz aumentada del sistema con su primer
+renglo|n de coeficientes de la tercera ecuacion, es decir, podemos reordenar las ecuaciones
+
+\[
+\begin{bmatrix}
+ 1 & 3 & -4 & -4  \\
+ 2 & -1 & 3 & 4  \\
+ 3 & 2 & -1 & 3  \\
+\end{bmatrix}
+-> -2R_1+ R_2 space  -3R_1+R_3
+\]
+
+\[
+\begin{bmatrix}
+ 1 & 3 & -4 & -1  \\
+ 0 & -7 &11 & 6  \\
+ 0 & -7 & 11 & 6  \\
+\end{bmatrix}
+-> -R_2+ R_3
+\]
+
+\[
+\begin{bmatrix}
+ 1 & 3 & -4 & -1  \\
+ 0 & -7 &11 & 6  \\
+ 0 & 0 & 0 & 0  \\
+\end{bmatrix}
+-> -\frac{1}{7}R_2
+\]
+
+\[
+\begin{bmatrix}
+ 1 & 3 & -4 & -1  \\
+ 0 & 1 & -\frac{11}{7} & -\frac{6}{7}  \\
+ 0 & 0 & 0 & 0  \\
+\end{bmatrix}
+\]
+
+
+\[
+    x + \frac{5}{7}z = \frac{11}{7}
+    y - \frac{11}{7}z = -\frac{6}{7}
+    0z = 0
+\]
+
+\[
+    x + \frac{5}{7}z = \frac{11}{7}
+    y - \frac{11}{7}z = -\frac{6}{7}
+\]
+
+\[
+    x = \frac{11}{7} - \frac{5}{7}z
+    y = -\frac{6}{7} +\frac{11}{7}z 
+\]
+Nuevamente pongamos z = t, donde t pertenece a los reales entonces el conjunto queda expresado como
+\[
+    x = \frac{11}{7} - \frac{5}{7}t
+    y = -\frac{6}{7} +\frac{11}{7}t
+    z = t
+\]
+
+por lo tanto, el sistema tiene una infinidad de soluciones
+
+
+
+\subsection{Ejercicios de SEL por el método de la inversa con GAUSS--JORDAN }
+
+
+\subsubsection{1er Ejemplo}
+
+\[
+A =
+\begin{bmatrix}
+ 1 & 2  \\
+ 1 & 3  \\
+\end{bmatrix}
+\]
+
+lo primero que debemos de hacer es poner la matriz A y la matriz identidad en una 
+sola matriz. La matriz A en la parte izquierda y la matriz identidad en la parte derecha
+
+\[
+A =
+\begin{bmatrix}
+ 1 & 2  \\
+ 1 & 3  \\
+\end{bmatrix}
+I =
+\begin{bmatrix}
+ 1 & 0  \\
+ 0 & 1  \\
+\end{bmatrix}
+\]
+Ahora para calcular la matriz inversa, tenemos que convertir la matriz de la parte izquierda
+en la matriz identidad, y para ello, debemos aplicar transformaciones en las filas hasta conseguirlo
+
+En el primer término de todos, el 1 ya que es igual a la matriz identidad. por lo tanto, no hace falta aplicar 
+ninguna transformación en la primera fila de momento
+
+la matriz identidad tiene un 0 en el último elemento de la primera columna, desde ahora tenemos un 1
+así que tenemos que convertir el 1 en un 0 para ello a la fila 2 le restamos 1
+\[
+A =
+\begin{bmatrix}
+ 1 & 2  \\
+ 1 & 3  \\
+\end{bmatrix}
+I =
+\begin{bmatrix}
+ 1 & 0  \\
+ 0 & 1  \\
+\end{bmatrix}
+-> f2-f1
+\]
+
+\[
+A =
+\begin{bmatrix}
+ 1 & 2  \\
+ 0 & 1  \\
+\end{bmatrix}
+I =
+\begin{bmatrix}
+ 1 & 0  \\
+ -1 & 1  \\
+\end{bmatrix}
+\]
+
+Pasamos a la segunda columna el 1 de abajo ya está bien.
+pero el 2 de arriba no, ya que la matriz identidad tiene un 0 en esa posición,
+por lo tanto, para convertir el 2 en un 0, a la fila 1 le restamos la fila 2 multiplicada por 2
+
+\[
+\begin{bmatrix}
+ 1 & 0  \\
+ 0 & 1  \\
+\end{bmatrix}
+-> f1-2f2
+\begin{bmatrix}
+ 3 & -2  \\
+ -1 & 1  \\
+\end{bmatrix}
+\]
+
+la matriz inversa es la matriz que obtenemos en la parte derecha tras convertir la matriz
+de la izquierda en la matriz identidad. y ahora en la parte de la izquierda. por lo tanto la matriz inversa es
+
+
+
+\[
+A-1 =
+\begin{bmatrix}
+ 3 & -2  \\
+ -1 & 1  \\
+\end{bmatrix}
+\]
+
+
+\subsubsection{2do Ejemplo}
+
+\[
+A =
+\begin{bmatrix}
+ 1 & 2 & -4 \\
+ 0 & 3 & 2 \\
+ 0 & 1 & 1 \\
+\end{bmatrix}
+\]
+
+\[
+    A =
+    \begin{bmatrix}
+     1 & 2 & -4 \\
+     0 & 3 & 2 \\
+     0 & 1 & 1 \\
+    \end{bmatrix}
+I =
+\begin{bmatrix}
+ 1 & 0 & 0 \\
+ 0 & 1 & 0 \\
+ 0 & 0 & 1 \\
+\end{bmatrix}
+-> f2-2f3
+\]
+
+\[
+    A =
+    \begin{bmatrix}
+     1 & 1 & 4 &|& 1 & 0 & 0 \\
+     0 & 1 & 0 &|& 0 & 1 & 0 \\
+     0 & 1 & 1 &|& 0 & 0 & 1 \\
+    \end{bmatrix}
+    -> f2-2f3
+\]
+\[
+    A =
+    \begin{bmatrix}
+     1 & 1 & 4 &| &1 & 0 & 0 \\
+     0 & 1 & 0 &| &0 & 1 & -2 \\
+     0 & 1 & 1 &| &0 & 0 & 1 \\
+    \end{bmatrix}
+    -> f3- f2
+\]
+\[
+    A =
+    \begin{bmatrix}
+     1 & 1 & -4& |& 1 & 0 & 0 \\
+     0 & 1 & 0 &| &0 & 1 & -2 \\
+     0 & 0 & 1 &| &0 & -1 & 3 \\
+    \end{bmatrix}
+    -> f1- f2
+\]
+
+\[
+    A =
+    \begin{bmatrix}
+     1 & 1 & -4 & |& 1 & -1 & 2 \\
+     0 & 1 & 0  &| &0 & 1 & 2 \\
+     0 & 0 & 1  &| &0 & -1 & 3 \\
+    \end{bmatrix}
+    -> f1+ 4f3
+\]
+\[
+    A =
+    \begin{bmatrix}
+     1 & 0 & 0 |& 1 & -5 & 14 \\
+     0 & 1 & 0 |& 0 & 1 & -2 \\
+     0 & 0 & 1 |& 0 & -1 & 3 \\
+    \end{bmatrix}
+    -> f1+ 4f3
+\]
+\[
+    A-1 =
+    \begin{bmatrix}
+      1 & -5 & 14 \\
+      0 & 1 & -2 \\
+      0 & -1 & 3 \\
+    \end{bmatrix}
+\]
+
+
+
+\subsubsection{3ero Ejemplo}
+
+\[
+    A =
+    \begin{bmatrix}
+        1 & 2 & 1 \\
+        0 & 1 & 0 \\
+        2 & 0 & 3 \\
+    \end{bmatrix}
+\]
+
+\[
+    A =
+    \begin{bmatrix}
+        1 & 2 & 1 & | & 1 & 1 & 1 \\
+        0 & 1 & 0 & | & 1 & 1 & 1 \\
+        2 & 0 & 3 & | & 1 & 1 & 1 \\
+    \end{bmatrix}
+    -> f3-2f1
+\]
+
+\[
+    A =
+    \begin{bmatrix}
+        1 & 2 & 1 & | & 1 & 0 & 0 \\
+        0 & 1 & 0 & | & 0 & 1 & 0 \\
+        2 & 4 & 1 & | & -2 & 0 & 1 \\
+    \end{bmatrix}
+    -> f1-2f2
+\]
+
+\[
+    A =
+    \begin{bmatrix}
+        1 & 0 & 1 & | & 1 & -2 & 0 \\
+        0 & 1 & 0 & | & 0 & 1 & 0 \\
+        2 & -4 & 1 & | & -2 & 0 & 1 \\
+    \end{bmatrix}
+    -> f3+4f2
+\]
+\[
+    A =
+    \begin{bmatrix}
+        1 & 0 & 1 & | & 1 & -2 & 0 \\
+        0 & 1 & 0 & | & 0 & 1 & 0 \\
+        0 & 0 & 1 & | & -2 & 4 & 1 \\
+    \end{bmatrix}
+    -> f1-f3
+\]
+
+\[
+    A =
+    \begin{bmatrix}
+        1 & 0 & 0 & | & 3 & -6 & -1 \\
+        0 & 1 & 0 & | & 0 & 1 & 0 \\
+        0 & 0 & 1 & | & -2 & 4 & 1 \\
+    \end{bmatrix}
+\]
+
+\[
+    A-1 =
+    \begin{bmatrix}
+        3 & -6 & -1 \\
+        0 & 1 & 0 \\
+        -2 & 4 & 1 \\
+    \end{bmatrix}
+\]
+
+
+\subsubsection{4to Ejemplo}
+
+
+\[
+    A =
+    \begin{bmatrix}
+        1 & -2 & 0 \\
+        1 & 2 & 2 \\
+        0 & 3 & 2 \\
+    \end{bmatrix}
+\]
+
+\[
+    A =
+    \begin{bmatrix}
+        1 & -2 & 0 & | & 1 & 0 & 0 \\
+        1 & 2 & 2 & | & 0 & 1 & 0 \\
+        0 & 3 & 2 & | & 0 & 0 & 1 \\
+    \end{bmatrix}
+    -> f2-f1
+\]
+
+
+\[
+    A =
+    \begin{bmatrix}
+        1 & -2 & 0 & | & 1 & 0 & 0 \\
+        0 & 4 & 2 & | & -1 & 1 & 0 \\
+        0 & 3 & 2 & | & 0 & 0 & 1 \\
+    \end{bmatrix}
+    -> f2-f4
+\]
+
+\[
+    A =
+    \begin{bmatrix}
+        1 & -2 & 0 & | & 1 & 0 & 0 \\
+        0 & 1 & \frac{2}{4} & | & -\frac{1}{4} & \frac{1}{4} & 0 \\
+        0 & 3 & 2 & | & 0 & 0 & 1 \\
+    \end{bmatrix}
+\]
+a la fila 1 le sumamos la fila 2 multiplicada por 2
+\[
+    A =
+    \begin{bmatrix}
+        1 & -2 & 0 & | & \frac{2}{4} & \frac{2}{4} & 0 \\
+        0 & 1 & \frac{2}{4} & | & -\frac{1}{4} & \frac{1}{4} & 0 \\
+        0 & 3 & 2 & | & 0 & 0 & 1 \\
+    \end{bmatrix}
+\]
+A la fila 3 le restamos la fila 2 multiplicada por 3
+\[
+    A =
+    \begin{bmatrix}
+        1 & 0 & 1 & | & \frac{2}{4} & \frac{2}{4} & 0 \\
+        0 & 1 & \frac{2}{4} & | & -\frac{1}{4} & \frac{1}{4} & 0 \\
+        0 & 0 & \frac{2}{4} & | & -\frac{3}{4} & \frac{3}{4} & 1 \\
+    \end{bmatrix}
+\]
+multiplicamos la tercera fila por dos
+\[
+    A =
+    \begin{bmatrix}
+        1 & 0 & 1 & | & \frac{2}{4} & \frac{2}{4} & 0 \\
+        0 & 1 & \frac{2}{4} & | & -\frac{1}{4} & \frac{1}{4} & 0 \\
+        0 & 0 & 1 & | & \frac{6}{4} & -\frac{6}{4} & 2 \\
+    \end{bmatrix}
+\]
+
+a la fila 2 le restamos la fila 3 dividida entre 2
+\[
+    A =
+    \begin{bmatrix}
+        1 & 0 & 1 & | & \frac{2}{4} & \frac{2}{4} & 0 \\
+        0 & 1 & 0 & | & -1 & 1 & 0 \\
+        0 & 0 & 1 & | & \frac{6}{4} & -\frac{6}{4} & 2 \\
+    \end{bmatrix}
+\]
+
+A la fila 1 le restamos la fila 3
+\[
+    A =
+    \begin{bmatrix}
+        1 & 0 & 0 & | & -1 & 2 & -2 \\
+        0 & 1 & 0 & | & -1 & 1 & -1 \\
+        0 & 0 & 1 & | & \frac{6}{4} & -\frac{6}{4} & 2 \\
+    \end{bmatrix}
+\]
+\[
+    A-1 =
+    \begin{bmatrix}
+        -1 & 2 & -2 \\
+        -1 & 1 & -1 \\
+        \frac{6}{4} & -\frac{6}{4} & 2 \\
+    \end{bmatrix}
+\]
+
+\subsubsection{5to Ejemplo}
+Dada la matriz de dimensión 2x2
+\[
+    A =
+    \begin{bmatrix}
+        2 & 0  \\
+        4 & -1 \\
+    \end{bmatrix}
+\]
+
+la matriz por bloque es
+\[
+    A =
+    \begin{bmatrix}
+        2 & 0 &  | & 1 & 0 \\
+        4 & -1 & | & 0& 1 \\
+    \end{bmatrix}
+\]
+Dividimos la fila uno entre dos
+
+\[
+    A =
+    \begin{bmatrix}
+        1 & 0 &  | & \frac{1}{2} & 0 \\
+        4 & -1 & | & 0& 1 \\
+    \end{bmatrix}
+\]
+
+a la fila 2 le restamos el cuádruple de la fila 1
+
+\[
+    A =
+    \begin{bmatrix}
+        1 & 0 &  | & \frac{1}{2} & 0 \\
+        0 & -1 & | & -2& 1 \\
+    \end{bmatrix}
+\]
+
+multiplicamos la fila 2 por -1
+
+\[
+    A =
+    \begin{bmatrix}
+        1 & 0 &  | & \frac{1}{2} & 0 \\
+        0 & -1 & | & 2& 1 \\
+    \end{bmatrix}
+\]
+
+como tenemos la identidad del lado izquierda, la inversa de A es la matriz del lado derecho
+
+\[
+    A-1 =
+    \begin{bmatrix}
+       \frac{1}{2}  & 0  \\
+        2 & -1 &  \\
+    \end{bmatrix}
+\]
+
+
+
+
+
+\subsection{Factorizacion LU}
+
+
+
+
+\subsubsection{1er Ejemplo}
+Encontrar una factorizacionn de la forma PA = LU para la matriz
+
+
+\[
+    A=
+    \begin{bmatrix}
+        0 & 0  & 2   \\
+        -1 & 5  & -2   \\
+        3 & 6  & 7   \\
+    \end{bmatrix}
+\]
+
+utilizando el pivoteo parcial.
+
+\[
+    \begin{bmatrix}
+        0 & 0  & 2   \\
+        -1 & 5  & -2   \\
+        3 & 6  & 7   \\
+    \end{bmatrix}
+\]
+
+-> Intercambiamos el primer renglon por el tercero
+
+\[
+\begin{bmatrix}
+        3 & 6 & 7   \\
+        -1 & 5  & -2   \\
+        0 & 0  & 2   \\
+    \end{bmatrix}
+\]
+
+-> sumandole un tercio a la segunda columna
+\[
+\begin{bmatrix}
+        3 & 6 & 7   \\
+        0 & 7  & \frac{1}{3}   \\
+        0 & 0  & 2   \\
+    \end{bmatrix}
+\]
+
+entonces
+
+\[
+    U=
+    \begin{bmatrix}
+        3 & 6  & 7   \\
+       0 & 7  & \frac{1}{3}   \\
+        0 & 0  & 2   \\
+    \end{bmatrix}
+\]
+
+\[
+    L=
+    \begin{bmatrix}
+        1 & 0  & 0   \\
+        -\frac{1}{3} & 1  & 0   \\
+        0 & 0  & 1   \\
+    \end{bmatrix}
+\]
+
+
+para la martiz P, la matriz permutacion. observamos que cambiamos la fila 
+1 y 3 es decir
+
+\[
+    P=
+    \begin{bmatrix}
+        1 & 0  & 0   \\
+        0 & 1  & 0   \\
+        0 & 0  & 1   \\
+    \end{bmatrix}
+\]
+
+
+\[
+    P=
+    \begin{bmatrix}
+        0 & 0  & 1   \\
+        0 & 1  & 0   \\
+        1 & 0  & 0   \\
+    \end{bmatrix}
+\]
+
+se comprueba que 
+\[
+    \begin{bmatrix}
+        0 & 0  & 1   \\
+        0 & 1  & 0   \\
+        1 & 0  & 0   \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & 0  & 2   \\
+        -1 & 5  & -2   \\
+        3 & 6  & 7   \\
+    \end{bmatrix}
+\]
+
+=
+
+\[
+    \begin{bmatrix}
+        1 & 0  & 0   \\
+       -\frac{1}{3}  & 1  & 0   \\
+        0 & 0  & 1   \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        3 & 6 & 7   \\
+        0 & 7  & \frac{1}{3}   \\
+        0 & 0  & 2   \\
+    \end{bmatrix}
+\]
+
+\subsubsection{2do Ejemplo}
+
+Dos permutaciones de filas 
+Encontrar una factorizacion de la forma PA = LU para la matriz
+
+\[
+    A=
+    \begin{bmatrix}
+        0 & 1  & 1   \\
+        -1 & 2  & -4   \\
+        2 & -5  & 1   \\
+    \end{bmatrix}
+\]
+
+utilizando el pivoteo parcial
+Cambiar el renglon 1 por el 3
+
+\[
+    A=
+    \begin{bmatrix}
+        2 & -5  & 1   \\
+        -1 & 2  & -4   \\
+        0 & 1  & 1   \\
+    \end{bmatrix}
+\]
+
+multriplicarlo el renglon 2 por 1/2
+\[
+    A=
+    \begin{bmatrix}
+        2 & -5  & 1   \\
+        0 & -\frac{1}{2}  & -\frac{7}{2}   \\
+        0 & 1  & 1   \\
+    \end{bmatrix}
+\]
+cambiar el renglon dos por el tercero
+\[
+    A=
+    \begin{bmatrix}
+        2 & -5  & 1   \\
+        0 & 1  & 1   \\
+        0 & -\frac{1}{2}  & -\frac{7}{2}   \\
+    \end{bmatrix}
+\]
+
+multriplicar el 3er renglon por 1/2
+\[
+    A=
+    \begin{bmatrix}
+        2 & -5  & 1   \\
+        0 & 1  & 1   \\
+        0 & 0 & -3   \\
+    \end{bmatrix}
+\]
+
+asi obtenemos
+\[
+    U=
+    \begin{bmatrix}
+        2 & -5  & 1   \\
+        0 & 1  & 1   \\
+        0 & 0 & -3   \\
+    \end{bmatrix}
+\]
+la matriz L antes del segundo intercambio era
+\[
+    \begin{bmatrix}
+        1 & 0  & 0   \\
+        -\frac{1}{2} & 1  & 0   \\
+        0 & 0 & 1  \\
+    \end{bmatrix}
+\]
+pero al intercambiar las filas 2 y 3 la matriz L cambia a 
+\[
+    \begin{bmatrix}
+        1 & 0  & 0   \\
+        0 & 0 & 1  \\
+        -\frac{1}{2} & 1  & 0   \\
+    \end{bmatrix}
+\]
+despues de ese intercambio queda por agregar la ultima operacion entre filas y L
+\[
+  L =
+\begin{bmatrix}
+        1 & 0  & 0   \\
+        0 & 1 & 0  \\
+        -\frac{1}{2} & -\frac{1}{2}  & 1   \\
+    \end{bmatrix}
+\]
+para la matriz P observamos que cambiamos primero la fila 1 y 3
+luego la fila 2 y 3
+\[
+  P =
+\begin{bmatrix}
+        1 & 0  & 0   \\
+        0 & 1 & 0  \\
+        0 & 0  & 1   \\
+    \end{bmatrix}
+\]
+\[
+  P =
+\begin{bmatrix}
+    0 & 0  & 1   \\
+    0 & 1 & 0  \\
+        1 & 0  & 0   \\
+    \end{bmatrix}
+\]
+\[
+  P =
+\begin{bmatrix}
+    0 & 0  & 1   \\
+    1 & 0  & 0   \\
+    0 & 1 & 0  \\
+    \end{bmatrix}
+\]
+
+se comprueba que
+\[
+\begin{bmatrix}
+    0 & 0  & 1   \\
+    1 & 0  & 0   \\
+    0 & 1 & 0  \\
+\end{bmatrix}
+\begin{bmatrix}
+    0 & 1  & 1   \\
+    -1 & 2  & -4   \\
+    2 & -5 & 1  \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1 & 0  & 0   \\
+    0 & 1 & 0  \\
+    -\frac{1}{2} & -\frac{1}{2} & 1  \\
+\end{bmatrix}
+\begin{bmatrix}
+    2 & -5  & 1   \\
+    0 & 1  & 1   \\
+    0 & 0 & -1  \\
+\end{bmatrix}
+\]
+
+
+
+
+
+
+\subsubsection{3er Ejemplo}
+
+Encontrar una factorizacion de la forma PA = LU para la matriz
+
+\[
+    A=
+    \begin{bmatrix}
+        2 & -2  & 1   \\
+        -8 & 11  & 5   \\
+        4 & 13 & 3   \\
+    \end{bmatrix}
+\]
+utilizando el pivoteo parcial
+\[
+    A=
+    \begin{bmatrix}
+        2 & -2  & 1   \\
+        -8 & 11  & 5   \\
+        4 & 13 & 3   \\
+    \end{bmatrix}
+\]
+\[
+    A=
+    \begin{bmatrix}
+        -8 & 11  & 5   \\
+        2 & -2  & 1   \\
+        4 & 13 & 3   \\
+    \end{bmatrix}
+\]
+sumando el segundo renglon por 1/4 y el 3ero por 1/2
+\[
+    A=
+    \begin{bmatrix}
+        -8 & 11  & 5   \\
+        0 & \frac{3}{4}  & \frac{9}{4}   \\
+        4 & -\frac{15}{2} & \frac{11}{2}   \\
+    \end{bmatrix}
+\]
+
+\[
+    A=
+    \begin{bmatrix}
+        -8 & 11  & 5   \\
+        4 & -\frac{15}{2} & \frac{11}{2}   \\
+        0 & \frac{3}{4}  & \frac{9}{4}   \\
+    \end{bmatrix}
+\]
+
+    sumandole al 3er rengon 1/10
+\[
+    A=
+    \begin{bmatrix}
+        -8 & 11  & 5   \\
+        4 & -\frac{15}{2} & \frac{11}{2}   \\
+        0 & 0  & \frac{14}{5}   \\
+    \end{bmatrix}
+\]
+luego
+\[
+    U=
+    \begin{bmatrix}
+        -8 & 11  & 5   \\
+        4 & -\frac{15}{2} & \frac{11}{2}   \\
+        0 & 0  & \frac{14}{5}   \\
+    \end{bmatrix}
+\]
+
+la matriz L antes del segundo cambio de filas era
+
+\[
+    \begin{bmatrix}
+        1 & 0  & 0   \\
+        -\frac{1}{4} & 1 & 0   \\
+        -\frac{1}{2} & 0  & 1   \\
+    \end{bmatrix}
+\]
+
+pero al intercambiar las filas 2 y 3 la matriz cambia a
+
+\[
+    \begin{bmatrix}
+        1 & 0  & 0   \\
+        -\frac{1}{2} & 0  & 1   \\
+        -\frac{1}{4} & 1 & 0   \\
+    \end{bmatrix}
+\]
+
+despues de este intercambio queda por agregar la uiltima operacion entre fila
+y L es 
+\[
+    L =
+    \begin{bmatrix}
+        1 & 0  & 0   \\
+        -\frac{1}{2} & 1 & 0   \\
+        -\frac{1}{4} & -\frac{1}{10}  & 1   \\
+    \end{bmatrix}
+\]
+
+Para P la matriz de permutacion, observamos que cambiamos primero la fila
+1 y 2 luego la fila 2 y 3 es decir
+
+\[
+    p =
+    \begin{bmatrix}
+        1 & 0  & 0   \\
+     0 & 1 & 0   \\
+       0 & 0  & 1   \\
+    \end{bmatrix}
+\]
+\[
+    p =
+    \begin{bmatrix}
+        0 & 1 & 0   \\
+        1 & 0  & 0   \\
+       0 & 0  & 1   \\
+    \end{bmatrix}
+\]
+\[
+    p =
+    \begin{bmatrix}
+        0 & 1 & 0   \\
+        0 & 0  & 1   \\
+        1 & 0  & 0   \\
+    \end{bmatrix}
+\]
+
+Se comprueba que 
+\[
+    \begin{bmatrix}
+        0 & 1 & 0   \\
+        0 & 0  & 1   \\
+        1 & 0  & 0   \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        2 & -2 & 1   \\
+    -8 & 11  & 5   \\
+        4 & -13  & 3   \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 0 & 0   \\
+    -\frac{1}{2}& 1  & 0   \\
+       -\frac{1}{4}  & -\frac{1}{10}  & 1   \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        -8 & 11 & 5   \\
+    0 & -\frac{15}{2}  & \frac{11}{2}   \\
+       0  & 0  & \frac{14}{5}   \\
+    \end{bmatrix}
+\]
+
+
+
+\subsubsection{4to Ejemplo}
+tres permutaciones de filas 
+\[
+    A=
+    \begin{bmatrix}
+        1 & 4 & 0 & -4   \\
+        5 & 1 & 1 & -1   \\
+        3 & 1 & -1 & -2   \\
+        -3 & 4 & 6 & 2   \\
+    \end{bmatrix}
+\]
+
+utilizando El pivoteo parcial
+cambiando la fila 1 por la fila 2
+\[
+    A=
+    \begin{bmatrix}
+        5 & 1 & 1 & -1   \\
+        1 & 4 & 0 & -4   \\
+        3 & 1 & -1 & -2   \\
+        -3 & 4 & 6 & 2   \\
+    \end{bmatrix}
+\]
+
+sumando -1/5 a la fila 2
+sumandole -3/5 a la fila 3
+sumando 3/5 a la cuarta fila
+\[
+    \begin{bmatrix}
+        5 & 1 & 1 & -1   \\
+        0 & \frac{19}{5}  & -\frac{1}{5} & -\frac{19}{5}   \\
+        0 & \frac{2}{5} & -\frac{8}{5} & -\frac{7}{5}   \\
+        0 & \frac{23}{5} & \frac{33}{5} & \frac{7}{5}   \\
+    \end{bmatrix}
+\]
+
+\[
+    \begin{bmatrix}
+        5 & 1 & 1 & -1   \\
+        0 & \frac{23}{5} & \frac{33}{5} & \frac{7}{5}   \\
+        0 & \frac{2}{5} & -\frac{8}{5} & -\frac{7}{5}   \\
+        0 & \frac{19}{5}  & -\frac{1}{5} & -\frac{19}{5}   \\
+    \end{bmatrix}
+\]
+
+restanto -2/23 a la tercer fila
+restando -19/23 a la 4ta fila
+\[
+    \begin{bmatrix}
+        5 & 1 & 1 & -1   \\
+        0 & \frac{23}{5} & \frac{33}{5} & \frac{7}{5}   \\
+        0 & 0 & -\frac{50}{23} & -\frac{35}{23}   \\
+        0 & 0  & -\frac{130}{23} & -\frac{114}{23}   \\
+    \end{bmatrix}
+\]
+\[
+    \begin{bmatrix}
+        5 & 1 & 1 & -1   \\
+        0 & \frac{23}{5} & \frac{33}{5} & \frac{7}{5}   \\
+        0 & 0 & -\frac{50}{23} & -\frac{35}{23}   \\
+        0 & 0  & -\frac{130}{23} & -\frac{114}{23}   \\
+    \end{bmatrix}
+\]
+
+cambiando la fila 3 y 4 y despues restando -5/13
+\[
+    \begin{bmatrix}
+        5 & 1 & 1 & -1   \\
+        0 & \frac{23}{5} & \frac{33}{5} & \frac{7}{5}   \\
+        0 & 0  & -\frac{130}{23} & -\frac{114}{23}   \\
+        0 & 0 & -\frac{50}{23} & -\frac{35}{23}   \\
+    \end{bmatrix}
+\]
+
+\[
+    \begin{bmatrix}
+        5 & 1 & 1 & -1   \\
+        0 & \frac{23}{5} & \frac{33}{5} & \frac{7}{5}   \\
+        0 & 0  & -\frac{130}{23} & -\frac{114}{23}   \\
+        0 & 0 & 0 & -\frac{5}{13}   \\
+    \end{bmatrix}
+\]
+
+\[
+U =
+\begin{bmatrix}
+        5 & 1 & 1 & -1   \\
+        0 & \frac{23}{5} & \frac{33}{5} & \frac{7}{5}   \\
+        0 & 0  & -\frac{130}{23} & -\frac{114}{23}   \\
+        0 & 0 & 0 & -\frac{5}{13}   \\
+    \end{bmatrix}
+\]
+
+
+La matriz L antes del segundo intercambio de filas era
+\[
+\begin{bmatrix}
+        1 & 0 & 0 & 0   \\
+        \frac{1}{5} & 1 & 0 & 0   \\
+        \frac{3}{5} & 0  & 1 & 0   \\
+        -\frac{3}{5} & 0 & 0 & 1   \\
+    \end{bmatrix}
+\]
+
+al cambiar las filas 2 y 3 resulta
+
+\[
+\begin{bmatrix}
+        1 & 0 & 0 & 0   \\
+        -\frac{3}{5} & 1 & 0 & 0   \\
+        \frac{3}{5} & 0  & 1 & 0   \\
+        \frac{1}{5} & 0 & 0 & 1  \\
+    \end{bmatrix}
+\]
+
+con las nuevas operaciones elementales, antes del nuevo cambio resulta
+
+
+\[
+\begin{bmatrix}
+        1 & 0 & 0 & 0   \\
+        -\frac{3}{5} & 1 & 0 & 0   \\
+        \frac{3}{5} &  \frac{2}{23}  & 1 & 0   \\
+        \frac{1}{5} &  \frac{19}{23} & 0 & 1  \\
+    \end{bmatrix}
+\]
+
+la matriz vuelve a cambiar la permutacion de las filas 3 y 4
+
+\[
+\begin{bmatrix}
+        1 & 0 & 0 & 0   \\
+        -\frac{3}{5} & 1 & 0 & 0   \\
+        \frac{1}{5} &  \frac{19}{23} & 0 & 1  \\
+        \frac{3}{5} &  \frac{2}{23}  & 1 & 0   \\
+    \end{bmatrix}
+\]
+
+finalmente L = 
+
+\[
+L =
+\begin{bmatrix}
+        1 & 0 & 0 & 0   \\
+        -\frac{3}{5} & 1 & 0 & 0   \\
+        \frac{1}{5} &  \frac{19}{23} & 0 & 1  \\
+        \frac{3}{5} &  \frac{2}{23}  & 1 & 0   \\
+    \end{bmatrix}
+\]
+
+para la matriz P observamos
+
+\[
+\begin{bmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    \end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+    0 & 1 & 0 & 0 \\
+    1 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    \end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 0 \\
+    1 & 0 & 0 & 0 \\
+    \end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 1 \\
+    1 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    \end{bmatrix}
+\]
+
+se comprueba que
+
+\[
+\begin{bmatrix}
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 1 \\
+    1 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    \end{bmatrix}
+\begin{bmatrix}
+    1 & 4 & 0 & -4 \\
+    5 & 1 & 1 & -1 \\
+    3 & 1 & -1 & -2 \\
+    -3 & 4 & 6 & 2 \\
+    \end{bmatrix}
+=
+    \begin{bmatrix}
+        1 & 0 & 0 & 0 \\
+        -\frac{3}{5} & 1 & 0 & 0 \\
+        \frac{1}{5} & \frac{19}{23} & 1 & 0 \\
+        \frac{3}{5} & \frac{2}{23} & \frac{5}{23} & 1 \\
+        \end{bmatrix}
+    \begin{bmatrix}
+        5 & 1 & 1 & -1 \\
+        0 & \frac{23}{5} & \frac{33}{5} & \frac{7}{5} \\
+        0 & 0 & -\frac{130}{23} & -\frac{114}{2} \\
+        0 & 0 & 0 & \frac{5}{13} \\
+        \end{bmatrix}
+\]
+
+
+
+
+
+
+
+\subsection{SEL metodo de crammer}
+
+
+
+\subsubsection{SEL solucion unica}
+
+\subsubsection{1er Ejemplo}
+
+\[
+    \begin{bmatrix}
+        x & -3y & = & 2  \\
+        0 & +5y & = & 10 \\
+        \end{bmatrix}
+\]
+la martiz del coeficiente del sistema es
+\[
+    A = 
+    \begin{bmatrix}
+        1 & -3 \\
+        1 & 5  \\
+        \end{bmatrix}
+\]
+la matriz de incogmitas
+\[
+    X = 
+    \begin{bmatrix}
+      x \\
+      y  \\
+        \end{bmatrix}
+\]
+la matriz de terminos independientes
+\[
+    B =
+    \begin{bmatrix}
+      2 \\
+      10  \\
+    \end{bmatrix}
+\]
+calculamos el determinante de A
+
+\[
+    |A| =
+    \begin{bmatrix}
+       | 1 - 3 |  \\
+       | 1   5 | \\
+    \end{bmatrix}
+    = 5 + 3
+    = 8 != 0
+\]
+para poder aplicar la regla de crammer
+
+la primera incognita es x cuyos coeficientes son los de la primera columna de A
+la matriz A es como A pero cambiando dicha columna por b
+
+\[
+    A_1 =
+    \begin{bmatrix}
+        2 - 3  \\
+        10   5  \\
+    \end{bmatrix}
+\]
+calculamos x
+\[
+    x =
+    \begin{bmatrix}
+        2 - 3  \\
+        10   5  \\
+    \end{bmatrix}
+    / | A |
+    = 40/8 = 5
+\]
+
+la segunda incognita es Y y sus coeficientes son los de la segunda columna de A
+tenemos que calcular el determinante de la matriz
+
+\[
+    A_2 =
+    \begin{bmatrix}
+        1 2  \\
+        1  10  \\
+    \end{bmatrix}
+\]
+calculamnos y
+\[
+    Y =
+    \begin{bmatrix}
+       | 1 2  | \\
+       | 1  10|   \\
+    \end{bmatrix}
+    / | A |
+    = 8/8 = 1
+\]
+por lo tanto la solucion del sistema es 
+x= 5
+y= 1
+
+
+\subsubsection{2er Ejemplo}
+
+\[
+    \begin{bmatrix}
+        x & +y & = & 1  \\
+        2x & +y & = & 0 \\
+        \end{bmatrix}
+\]
+
+la matriz de coeficiente del sistema esa
+
+\[
+A =
+\begin{bmatrix}
+        1 & 1   \\
+        2 & 1 \\
+        \end{bmatrix}
+\]
+La matriz en terminos independiuentes es 
+\[
+B =
+\begin{bmatrix}
+        1    \\
+        0  \\
+        \end{bmatrix}
+\]
+calculamos el determinante de A
+\[
+| A | =
+\begin{bmatrix}
+      | 1 1 |      \\
+      | 2 1 |    \\
+        \end{bmatrix}
+        = 1 -2 = -1 != 0
+\]
+
+aplicando la regla de crammer la matriz A esa
+
+\[
+A_1 =
+\begin{bmatrix}
+        1 1   \\
+        0 1 \\
+        \end{bmatrix}
+\]
+
+calculamos x
+
+\[
+X =
+\begin{bmatrix}
+    |1 1|       \\
+    |0 1|     \\
+\end{bmatrix}
+/ | A |
+= 1/ -1 = -1
+\] 
+
+la matriz a2 es
+\[
+    A_2 =
+    \begin{bmatrix}
+        1 1   \\
+        2 0 \\
+    \end{bmatrix}
+\]
+calculamos y
+\[
+   Y =
+    \begin{bmatrix}
+       | 1 1 |   \\
+       | 2 0 | \\
+    \end{bmatrix}
+    / | A |
+    = -2/-1 = 2
+\]
+
+por lo tanto la solucion del sistema esa
+\[
+    x = -1
+    y = 2
+\]
+
+\end{document}
